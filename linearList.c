@@ -8,20 +8,20 @@ typedef struct node
 {
 	Elemtype *elem;
 	int length;
-}node,*pnode;// node±íÊ¾struct node£¬*pnode±íÊ¾struct node *
+}node,*pnode;// nodeè¡¨ç¤ºstruct nodeï¼Œ*pnodeè¡¨ç¤ºstruct node *
 
 int init(pnode L)
 {
-	L->elem=(int*)malloc(MAX_INIT_SIZE*sizeof(int));//Ë³Ğò±íÊÇ¸øL->elem·ÖÅä¿Õ¼ä
-	if(!L->elem)	return ERROR;//Èç¹û·ÖÅä²»³É¹¦£¬Ôò·µ»Øerror£¬·ÖÅäÊ§°Ü
+	L->elem=(int*)malloc(MAX_INIT_SIZE*sizeof(int));//é¡ºåºè¡¨æ˜¯ç»™L->elemåˆ†é…ç©ºé—´
+	if(!L->elem)	return ERROR;//å¦‚æœåˆ†é…ä¸æˆåŠŸï¼Œåˆ™è¿”å›errorï¼Œåˆ†é…å¤±è´¥
 	L->length=0;
 	return OK;
 }
 
 int inert(pnode L,int i,Elemtype e)
 {																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
-	int *p,*q;//pºÍq ¶¼ÊÇÖ¸ÏòelemÊı×éµÄÖ¸Õë£¬ËùÒÔ±ØĞë¶¨ÒåÎªint
-	p=&L->elem[i-1];//pºÍq¶¼ÊÇÖ¸Õë£¬Ö¸ÕëÄÚÖ»ÄÜ´æ·ÅµØÖ·
+	int *p,*q;//på’Œq éƒ½æ˜¯æŒ‡å‘elemæ•°ç»„çš„æŒ‡é’ˆï¼Œæ‰€ä»¥å¿…é¡»å®šä¹‰ä¸ºint
+	p=&L->elem[i-1];//på’Œqéƒ½æ˜¯æŒ‡é’ˆï¼ŒæŒ‡é’ˆå†…åªèƒ½å­˜æ”¾åœ°å€
 	for(q=&L->elem[L->length-1];q>=p;q--)
 	{*(q+1)=*q;}
 		*p=e;
@@ -39,7 +39,7 @@ int del(pnode L,int i)
 	return OK;
 }
 
-int delelem(pnode L,int e)//°´ÔªËØÉ¾³ıÖ»ÄÜÉ¾³ıÎ»ÖÃ¿¿Ç°µÄÒ»¸öÔªËØ
+int delelem(pnode L,int e)//æŒ‰å…ƒç´ åˆ é™¤åªèƒ½åˆ é™¤ä½ç½®é å‰çš„ä¸€ä¸ªå…ƒç´ 
 {
 	int *p,*q;
 	int i=0;
@@ -71,7 +71,7 @@ int locate(pnode L,int e)
 		}
 		i++;
 	}	
-	/*for(;i<=L->length-1;i++) ÕâÖÖ¸ü¼ÓÖ±¹ÛºÍ¼ò½à
+	/*for(;i<=L->length-1;i++) è¿™ç§æ›´åŠ ç›´è§‚å’Œç®€æ´
 	if(*q==e)
 		{
 	prinf("the place of the element %d is: %d",*q,i+1);	
