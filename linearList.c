@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define Elemtype int 
+#define Elemtype int
 #define OK 0
 #define ERROR 1
 #define MAX_INIT_SIZE 100
@@ -19,7 +19,7 @@ int init(pnode L)
 }
 
 int inert(pnode L,int i,Elemtype e)
-{																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																
+{
 	int *p,*q;//p和q 都是指向elem数组的指针，所以必须定义为int
 	p=&L->elem[i-1];//p和q都是指针，指针内只能存放地址
 	for(q=&L->elem[L->length-1];q>=p;q--)
@@ -51,8 +51,8 @@ int delelem(pnode L,int e)//按元素删除只能删除位置靠前的一个元�
 		if(*q==e)
 		{
 			for(;q<=p;q++)
-			*q=*(q+1);			
-		}					
+			*q=*(q+1);
+		}
 	}
 	L->length--;
 	return OK;
@@ -67,14 +67,14 @@ int locate(pnode L,int e)
 	{
 		if(*q==e)
 		{
-			prinf("the place of the element %d is: %d",*q,i+1);	
+			prinf("the place of the element %d is: %d",*q,i+1);
 		}
 		i++;
-	}	
+	}
 	/*for(;i<=L->length-1;i++) 这种更加直观和简洁
 	if(*q==e)
 		{
-	prinf("the place of the element %d is: %d",*q,i+1);	
+	prinf("the place of the element %d is: %d",*q,i+1);
 		}*/
 	return i;
 }
